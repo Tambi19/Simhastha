@@ -32,10 +32,14 @@ export default function Pilgrim() {
     >
       {/* Transparent white overlay for readability */}
       <div className="absolute inset-0 bg-white/60"></div>
+      
 
       <div className="relative z-10 bg-white/50 shadow-2xl rounded-2xl p-8 w-full max-w-md backdrop-blur-md">
+      <h1 className="text-3xl font-bold text-black mb-8 text-center">
+          “आपका एक कदम, लाखों के लिए स्वच्छता”
+        </h1>
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">
-          🚻 Pilgrim/तीर्थयात्री
+          🚻 🙏
         </h2>
 
         {/* Input */}

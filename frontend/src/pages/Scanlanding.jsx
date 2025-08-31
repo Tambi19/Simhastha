@@ -46,7 +46,7 @@ export default function ScanLanding() {
 
       <div className="relative z-10 flex flex-col items-center">
         <h1 className="text-4xl font-bold text-black mb-8 text-center">
-          “आपका एक कदम, लाखों के लिए स्वच्छता”
+          आपका एक कदम, लाखों के लिए स्वच्छता 🙏
         </h1>
 
         <h1

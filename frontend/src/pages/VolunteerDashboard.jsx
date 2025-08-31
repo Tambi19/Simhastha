@@ -62,7 +62,7 @@ export default function Volunteer() {
 
   return (
     <div
-      className="min-h-screen w-full flex flex-col items-center relative p-6 pt-16 font-sans"
+      className="min-h-screen w-full flex flex-col items-center relative p-4 sm:p-6 pt-16 font-sans"
       style={{
         backgroundImage: `url(${mandirImg})`,
         backgroundSize: "cover",
@@ -73,23 +73,31 @@ export default function Volunteer() {
 
       {/* Logout Button */}
       <motion.button
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         onClick={handleLogout}
-        className="absolute top-6 right-6 px-5 py-2 rounded-xl bg-gradient-to-r from-red-500 to-pink-600 text-white font-semibold shadow-lg hover:from-red-600 hover:to-pink-700 transition"
+        className="absolute top-4 right-4 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full 
+                   bg-gradient-to-r from-red-500 via-pink-500 to-red-600 
+                   text-white text-sm sm:text-base font-semibold 
+                   shadow-md hover:shadow-lg hover:from-red-600 hover:to-pink-700 
+                   transition-all duration-300"
       >
         🚪 Logout
       </motion.button>
 
       <div className="relative z-10 w-full max-w-4xl">
-        <h2 className="text-4xl font-bold text-black mb-8 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold 
+                       text-black text-center mb-8 
+                       drop-shadow-sm tracking-wide">
           Volunteer Dashboard
         </h2>
+
         {message && (
           <div className="fixed top-5 right-5 bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg z-50">
             {message}
           </div>
         )}
+
         {loading ? (
           <p className="text-center text-gray-200">Loading data...</p>
         ) : reports.length === 0 ? (
@@ -102,7 +110,8 @@ export default function Volunteer() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white/90 rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition backdrop-blur-sm"
+                className="bg-white/90 rounded-2xl shadow-lg p-6 border border-gray-100 
+                           hover:shadow-xl transition backdrop-blur-sm"
               >
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
                   Toilet: {report.toiletId}
@@ -120,7 +129,8 @@ export default function Volunteer() {
                   {!report.verified && (
                     <button
                       onClick={() => verifyReport(report._id)}
-                      className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium shadow"
+                      className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 
+                                 text-white text-sm font-medium shadow"
                     >
                       Verify Report
                     </button>
@@ -129,7 +139,8 @@ export default function Volunteer() {
                     <select
                       onChange={(e) => assignCleaner(report._id, e.target.options[e.target.selectedIndex].text)}
                       defaultValue=""
-                      className="px-3 py-1.5 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-indigo-500 bg-white"
+                      className="px-3 py-1.5 rounded-lg border border-gray-300 text-sm 
+                                 focus:ring-2 focus:ring-indigo-500 bg-white"
                     >
                       <option value="" disabled>Select Cleaner</option>
                       {cleaners.map((c) => (
@@ -140,7 +151,8 @@ export default function Volunteer() {
                   {report.status === "verification_pending" && (
                     <button
                       onClick={() => verifyCleanerWork(report._id)}
-                      className="px-3 py-1.5 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-medium shadow"
+                      className="px-3 py-1.5 rounded-lg bg-green-600 hover:bg-green-700 
+                                 text-white text-sm font-medium shadow"
                     >
                       Approve Cleaning
                     </button>
