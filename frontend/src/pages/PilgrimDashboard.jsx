@@ -42,7 +42,7 @@ export default function Pilgrim() {
           🚻 🙏
         </h2>
 
-        {/* Input */}
+        { }
         <input
           type="text"
           placeholder="Enter Toilet Number"
@@ -51,7 +51,7 @@ export default function Pilgrim() {
           className="border-2 border-black-200 rounded-lg px-4 py-3 w-full mb-6 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
         />
 
-        {/* Buttons */}
+        { }
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <button
             onClick={() => reportIssue("Need Water")}
@@ -73,7 +73,7 @@ export default function Pilgrim() {
           </button>
         </div>
 
-        {/* Status Message */}
+        { }
         {message && (
           <p className="mt-6 text-center font-medium text-gray-700">
             {message}
