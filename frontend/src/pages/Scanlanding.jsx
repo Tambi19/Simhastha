@@ -69,7 +69,7 @@ export default function ScanLanding() {
           <Link
             ref={(el) => (buttonsRef.current[1] = el)}
             to="/cleaner"
-            className={`${buttonStyle} bg-gradient-to-r from-blue-400 to-blue-600 text-white shadow-blue-300`}
+            className={`${buttonStyle} bg-gradient-to-r from-blue-400 to-blue-600 text-white shadow-blue-200`}
             style={{ transform: "scale(0)" }}
           >
             🧹 I am a Cleaner
@@ -87,7 +87,7 @@ export default function ScanLanding() {
           <Link
             ref={(el) => (buttonsRef.current[3] = el)}
             to="/nearby"
-            className={`${buttonStyle} bg-gradient-to-r from-yellow-400 to-yellow-600 text-white shadow-yellow-100`}
+            className={`${buttonStyle} bg-gradient-to-r from-yellow-400 to-yellow-600 text-white `}
             style={{ transform: "scale(0)" }}
           >
            🗺️ Nearby Toilets
