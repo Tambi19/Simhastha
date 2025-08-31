@@ -8,23 +8,16 @@ export default function Volunteer() {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
 
-
   useEffect(() => {
     // Mock data since backend doesn't exist yet
     const mockReports = [
       { _id: "1", toiletId: "1,2,3", reportType: "Broken Tap", status: "pending", verified: false },
       { _id: "2", toiletId: "T-102", reportType: "Clogged Drain", status: "verification_pending", verified: true },
-            { _id: "1", toiletId: "1,2,3", reportType: "Broken Tap", status: "pending", verified: false },
-      { _id: "1", toiletId: "1,2,3", reportType: "Broken Tap", status: "pending", verified: false },
-
     ];
     const mockCleaners = [
       { _id: "c1", name: "Ravi" },
       { _id: "c2", name: "Sita" },
-      { _id: "c1", name: "Ravi" },
-      { _id: "c1", name: "Ravi" },
     ];
-    // Simulate API delay
     setTimeout(() => {
       setReports(mockReports);
       setCleaners(mockCleaners);
@@ -62,16 +55,32 @@ export default function Volunteer() {
     }
   };
 
+  const handleLogout = () => {
+    showMessage("👋 Logged out successfully!");
+    // here you can clear auth tokens / redirect to login
+  };
+
   return (
     <div
-      className=" min-h-screen w-full flex flex-col items-center relative p-6 pt-16 font-sans"
+      className="min-h-screen w-full flex flex-col items-center relative p-6 pt-16 font-sans"
       style={{
         backgroundImage: `url(${mandirImg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="absolute inset-0  bg-white/45"></div>
+      <div className="absolute inset-0 bg-white/45"></div>
+
+      {/* Logout Button */}
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handleLogout}
+        className="absolute top-6 right-6 px-5 py-2 rounded-xl bg-gradient-to-r from-red-500 to-pink-600 text-white font-semibold shadow-lg hover:from-red-600 hover:to-pink-700 transition"
+      >
+        🚪 Logout
+      </motion.button>
+
       <div className="relative z-10 w-full max-w-4xl">
         <h2 className="text-4xl font-bold text-black mb-8 text-center">
           Volunteer Dashboard
@@ -145,4 +154,3 @@ export default function Volunteer() {
     </div>
   );
 }
-
