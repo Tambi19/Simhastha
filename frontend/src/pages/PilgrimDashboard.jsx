@@ -1,5 +1,5 @@
 import { useState } from "react";
-import mandirImg from "../assets/mandir.jpg"; // <-- place the mandir image inside src/assets
+import mandirImg from "../assets/mandir.jpg"; 
 
 export default function Pilgrim() {
   const [toiletId, setToiletId] = useState("");
@@ -30,7 +30,7 @@ export default function Pilgrim() {
         backgroundPosition: "center",
       }}
     >
-      {/* Transparent white overlay for readability */}
+      
       <div className="absolute inset-0 bg-white/60"></div>
       
 

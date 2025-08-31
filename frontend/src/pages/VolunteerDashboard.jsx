@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import mandirImg from "../assets/mandir.jpg"; // <-- place the mandir image inside src/assets
+import mandirImg from "../assets/mandir.jpg"; 
 
 export default function Volunteer() {
   const [reports, setReports] = useState([]);
@@ -9,7 +9,7 @@ export default function Volunteer() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    // Mock data since backend doesn't exist yet
+   
     const mockReports = [
       { _id: "1", toiletId: "1,2,3", reportType: "Broken Tap", status: "pending", verified: false },
       { _id: "2", toiletId: "T-102", reportType: "Clogged Drain", status: "verification_pending", verified: true },

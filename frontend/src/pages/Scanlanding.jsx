@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import mandirImg from "../assets/mandir.jpg"; // <-- put your mandir image in assets folder
+import mandirImg from "../assets/mandir.jpg"; 
 
 export default function ScanLanding() {
   const buttonsRef = useRef([]);
@@ -41,7 +41,7 @@ export default function ScanLanding() {
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay with slight gradient for readability */}
+      
       <div className="absolute inset-0 bg-white/60"></div>
 
       <div className="relative z-10 flex flex-col items-center">
@@ -87,7 +87,7 @@ export default function ScanLanding() {
           <Link
             ref={(el) => (buttonsRef.current[3] = el)}
             to="/nearby"
-            className={`${buttonStyle} bg-gradient-to-r from-yellow-400 to-yellow-600 text-white shadow-yellow-200`}
+            className={`${buttonStyle} bg-gradient-to-r from-yellow-400 to-yellow-600 text-white shadow-yellow-100`}
             style={{ transform: "scale(0)" }}
           >
            🗺️ Nearby Toilets
