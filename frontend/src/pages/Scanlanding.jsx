@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import mandirImg from "../assets/mandir.jpg";
 import logo from "../assets/logo.png";
@@ -7,6 +7,15 @@ import logo from "../assets/logo.png";
 export default function ScanLanding() {
   const buttonsRef = useRef([]);
   const logoRef = useRef(null);
+
+  // ✅ Get clusterId from URL query params
+  const [searchParams] = useSearchParams();
+  const [clusterId, setClusterId] = useState(null);
+
+  useEffect(() => {
+    const id = searchParams.get("clusterId");
+    if (id) setClusterId(id);
+  }, [searchParams]);
 
   useEffect(() => {
     gsap.fromTo(
@@ -75,26 +84,23 @@ export default function ScanLanding() {
         <div className="grid grid-cols-1 gap-5 w-full max-w-sm">
           <Link
             ref={(el) => (buttonsRef.current[0] = el)}
-            to="/pilgrim"
+            to={`/pilgrim${clusterId ? `?clusterId=${clusterId}` : ""}`}
             className={`${buttonStyle} bg-gradient-to-r from-green-400 to-green-600 text-white shadow-green-200`}
           >
             🙋 I am a Pilgrim
           </Link>
 
-          {/* ✅ Cleaners go to auth with role=cleaner */}
           <Link
             ref={(el) => (buttonsRef.current[1] = el)}
-            to="auth/register?role=cleaner"
+            to={`auth/register?role=cleaner${clusterId ? `&clusterId=${clusterId}` : ""}`}
             className={`${buttonStyle} bg-gradient-to-r from-blue-400 to-blue-600 text-white shadow-blue-200`}
           >
             🧹 I am a Cleaner
           </Link>
 
-
-          {/* ✅ Volunteers go to auth with role=volunteer */}
           <Link
             ref={(el) => (buttonsRef.current[2] = el)}
-            to="auth/register?role=volunteer"
+            to={`auth/register?role=volunteer${clusterId ? `&clusterId=${clusterId}` : ""}`}
             className={`${buttonStyle} bg-gradient-to-r from-purple-400 to-purple-600 text-black shadow-purple-300`}
           >
             🤝 I am a Volunteer
@@ -102,10 +108,10 @@ export default function ScanLanding() {
 
           <Link
             ref={(el) => (buttonsRef.current[3] = el)}
-            to="/toilets"
+            to={`/toilets${clusterId ? `?clusterId=${clusterId}` : ""}`}
             className={`${buttonStyle} bg-gradient-to-r from-yellow-400 to-yellow-600 text-white`}
           >
-            🗺️ Nearby Toilets
+            🗺️ Nearby Toilets 
           </Link>
         </div>
       </div>
