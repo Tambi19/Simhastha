@@ -101,18 +101,7 @@ export default function VolunteerDashboard() {
         </h2>
 
         {/* Cluster Selector */}
-        <div className="flex justify-center mb-6">
-          <label className="text-white font-medium mr-2">Cluster:</label>
-          <select
-            value={clusterId}
-            onChange={(e) => setClusterId(e.target.value)}
-            className="px-3 py-2 rounded-lg border border-gray-300 bg-white cursor-pointer"
-          >
-            <option value="1">Cluster 1</option>
-            <option value="2">Cluster 2</option>
-            <option value="3">Cluster 3</option>
-          </select>
-        </div>
+       
 
         {/* Toast */}
         <AnimatePresence>
