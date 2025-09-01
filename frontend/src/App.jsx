@@ -12,7 +12,7 @@ import NearbyToilet from './pages/NearbyToilet.jsx';
 
 function App() {
   return (
-    <Router>
+ 
       <Routes>
         <Route path="/" element={<Scanlanding />} />
         <Route path="/pilgrim" element={<PilgrimDashboard />} />
@@ -26,7 +26,7 @@ function App() {
 
         
       </Routes>
-    </Router>
+ 
   );
 }
 
