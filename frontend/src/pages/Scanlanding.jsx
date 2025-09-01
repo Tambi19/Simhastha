@@ -1,14 +1,19 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { FaPrayingHands } from 'react-icons/fa';
 import mandirImg from "../assets/mandir.jpg";
 import logo from "../assets/logo.png";
+import { IoIosPeople } from 'react-icons/io';
+import { GiLargePaintBrush } from 'react-icons/gi';
+import { FaRegHandshake } from 'react-icons/fa6';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FaLongArrowAltRight } from 'react-icons/fa';
 
 export default function ScanLanding() {
   const buttonsRef = useRef([]);
   const logoRef = useRef(null);
 
-  // ✅ Get clusterId from URL query params
   const [searchParams] = useSearchParams();
   const [clusterId, setClusterId] = useState(null);
 
@@ -47,7 +52,7 @@ export default function ScanLanding() {
   }, []);
 
   const buttonStyle =
-    "w-full py-4 text-lg font-semibold rounded-2xl shadow-lg text-center relative overflow-hidden transition-all transform hover:-translate-y-1 hover:scale-105";
+    "w-full py-4 text-lg font-semibold rounded-2xl shadow-lg text-center relative flex items-center justify-center gap-2 transition-all transform hover:-translate-y-1 hover:scale-105";
 
   return (
     <div
@@ -69,10 +74,14 @@ export default function ScanLanding() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center mt-16">
-        <h1 className="text-4xl font-bold text-black mb-8 text-center">
-          आपका एक कदम, लाखों के लिए स्वच्छता 🙏
+      <div className="relative z-10 flex flex-col items-center -mt-8">
+        {/* Text slightly above */}
+        <h1 className="text-4xl font-bold text-black mb-2 text-center">
+          आपका एक कदम, लाखों के लिए स्वच्छता
         </h1>
+
+        {/* Folded hand icon below the text */}
+        <FaPrayingHands size={40} className="text-gray-800 mb-8" />
 
         <h1
           className="text-2xl sm:text-3xl md:text-4xl font-bold 
@@ -85,17 +94,17 @@ export default function ScanLanding() {
           <Link
             ref={(el) => (buttonsRef.current[0] = el)}
             to={`/pilgrim${clusterId ? `?clusterId=${clusterId}` : ""}`}
-            className={`${buttonStyle} bg-gradient-to-r from-green-400 to-green-600 text-white shadow-green-200`}
+            className={`${buttonStyle} bg-gradient-to-r from-green-400 to-green-600 text-black shadow-green-200`}
           >
-            🙋 I am a Pilgrim
+            <IoIosPeople size={24} /> I am a Pilgrim
           </Link>
 
           <Link
             ref={(el) => (buttonsRef.current[1] = el)}
             to={`auth/register?role=cleaner${clusterId ? `&clusterId=${clusterId}` : ""}`}
-            className={`${buttonStyle} bg-gradient-to-r from-blue-400 to-blue-600 text-white shadow-blue-200`}
+            className={`${buttonStyle} bg-gradient-to-r from-blue-400 to-blue-600 text-black shadow-blue-200`}
           >
-            🧹 I am a Cleaner
+            <GiLargePaintBrush size={24} /> I am a Cleaner
           </Link>
 
           <Link
@@ -103,15 +112,15 @@ export default function ScanLanding() {
             to={`auth/register?role=volunteer${clusterId ? `&clusterId=${clusterId}` : ""}`}
             className={`${buttonStyle} bg-gradient-to-r from-purple-400 to-purple-600 text-black shadow-purple-300`}
           >
-            🤝 I am a Volunteer
+            <FaRegHandshake size={24} /> I am a Volunteer
           </Link>
 
           <Link
             ref={(el) => (buttonsRef.current[3] = el)}
             to={`/toilets${clusterId ? `?clusterId=${clusterId}` : ""}`}
-            className={`${buttonStyle} bg-gradient-to-r from-yellow-400 to-yellow-600 text-white`}
+            className={`${buttonStyle} bg-gradient-to-r from-yellow-400 to-yellow-600 text-black`}
           >
-            🗺️ Nearby Toilets 
+            <FaMapMarkerAlt size={24} /> Nearby Toilets 
           </Link>
         </div>
       </div>
